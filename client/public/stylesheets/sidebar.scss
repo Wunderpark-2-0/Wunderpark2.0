@@ -11,14 +11,12 @@
   border-radius: 15px;
   color: white;
   font-family: 'Oswald', sans-serif;
-  
+
   h2 {
     margin: 0;
     color: ghostwhite;
     font-size: 18px;
   }
-
-
 
   .listItems {
     // list-style: square;
@@ -29,7 +27,6 @@
     overflow: scroll;
   }
 }
-
 
 #form {
   width: 250px;
@@ -53,7 +50,6 @@
     background-color: #070a015e;
     border-radius: 15px;
     text-align: center;
-
   }
 
   h3 {
@@ -203,7 +199,6 @@ input[type='date']:focus {
 .progress-bar {
   background-color: rgb(68, 98, 68);
   height: 15px;
-
 }
 
 .progress {

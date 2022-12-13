@@ -24,5 +24,4 @@ userRouter.post('/', userController.createUser, (_req, res) => {
   return res.status(200).json(res.locals.newUser);
 });
 
-
 module.exports = userRouter;

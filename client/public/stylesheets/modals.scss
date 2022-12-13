@@ -27,8 +27,7 @@ h3 {
   border-radius: 20px;
   padding: 20px;
   box-shadow: $box-shadow;
-  transition:
-    opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  transition: opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 
   .content {
     min-height: 100%;
@@ -80,15 +79,13 @@ h3 {
           // font-family: 'Kalam', cursive;
           font-weight: 700;
         }
-
       }
 
       .api_data {
         display: flex;
         flex-direction: column;
         justify-content: center;
-          text-align: center;
-
+        text-align: center;
 
         h4 {
           font-size: 25px;
@@ -98,7 +95,6 @@ h3 {
 
         .description {
           font-size: 20px;
-
         }
 
         .photo {
@@ -106,7 +102,6 @@ h3 {
           max-width: 500px;
           margin: 0 auto;
         }
-
       }
     }
 
@@ -117,6 +112,4 @@ h3 {
       justify-content: right;
     }
   }
-
 }
-

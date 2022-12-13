@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Icon from "./Icon.jsx";
+import React, { useState, useEffect } from 'react';
+import Icon from './Icon.jsx';
 
 // import in the images.js file
-import images from "../public/images.js";
-import parkCodes from "../public/parkcodes.js";
+import images from '../public/images.js';
+import parkCodes from '../public/parkcodes.js';
 
 //this component will loop through the passed in prop: codes, and generate an list of Icon components and rendering them
 function IconMaker(props) {
@@ -25,7 +25,7 @@ function IconMaker(props) {
         park={park}
         imgLink={images[park]}
         parkCode={parkCode}
-        className={codes.includes(parkCode) ? "color" : undefined}
+        className={codes.includes(parkCode) ? 'color' : undefined}
       />
     );
     // console.log('link :', imgLink/)

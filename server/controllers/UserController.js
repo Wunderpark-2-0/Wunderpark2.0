@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const User = require("../models/userModel.js");
+const mongoose = require('mongoose');
+const User = require('../models/userModel.js');
 
 const userController = {};
 
@@ -7,7 +7,7 @@ const userController = {};
 
 // The request coming in currently looks like {name: -----}
 userController.createUser = async (req, res, next) => {
-  console.log("in");
+  console.log('in');
   try {
     const user = await User.create({
       name: req.body.name,
@@ -30,7 +30,7 @@ userController.createUser = async (req, res, next) => {
 //why do you need to get the user if you want the info on a specific park? - they are using this to grab a users park-specific information for the modal
 userController.getUser = (req, res, next) => {
   // User.findOne({ name: req.body.name})
-  User.findOne({ name: "Aalok" })
+  User.findOne({ name: 'Aalok' })
     .then((user) => {
       if (user) {
         res.locals.user = user; // <-- send back all user info
@@ -38,8 +38,8 @@ userController.getUser = (req, res, next) => {
       }
     })
     .catch((err) => {
-      console.log("User not found");
-      return next({ message: "Error in getUser" });
+      console.log('User not found');
+      return next({ message: 'Error in getUser' });
     });
 };
 
@@ -59,7 +59,7 @@ userController.addPark = async (req, res, next) => {
       activitiesCompleted: req.body.activitiesDone,
     };
     // const user = await User.findOne({ name: req.body.name})
-    const user = await User.findOne({ name: "Aalok" });
+    const user = await User.findOne({ name: 'Aalok' });
     if (user) {
       const parksVisited = { ...user.parksVisited, [parkCode]: newPark };
       user.parksVisited = parksVisited;
@@ -78,13 +78,13 @@ userController.addPark = async (req, res, next) => {
 //This is grabbing only the keys of the users parks visited
 userController.getParks = (req, res, next) => {
   // User.findOne({ name: req.body.name})
-  User.findOne({ name: "Aalok" })
+  User.findOne({ name: 'Aalok' })
     .then((user) => {
       res.locals.parks = Object.keys(user.parksVisited); // <-- send back array of parks completed
       return next();
     })
     .catch((err) => {
-      return next({ message: "Error in getParks" });
+      return next({ message: 'Error in getParks' });
     });
 };
 

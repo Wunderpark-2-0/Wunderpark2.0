@@ -1,6 +1,6 @@
 import React, { _useEffect, useState } from 'react';
 import parkcodes from '../public/parkcodes.js';
-import ProgressBar from './ProgressBar.jsx'
+import ProgressBar from './ProgressBar.jsx';
 // import
 
 const ParkTally = (props) => {
@@ -17,7 +17,7 @@ const ParkTally = (props) => {
     <div className="parkTally">
       <ul className="visited_list">
         <h2>Parks Visited: {parksVisited.length}</h2>
-        <ProgressBar percent={props.codes}/>
+        <ProgressBar percent={props.codes} />
         <div className="listItems">{parksVisited}</div>
       </ul>
     </div>

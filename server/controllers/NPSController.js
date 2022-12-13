@@ -1,6 +1,6 @@
-const axios = require("axios");
+const axios = require('axios');
 
-const API_KEY = "btQCAT4O0selRfC9gtES2mS0u149qPEhBxOuNU8i";
+const API_KEY = 'btQCAT4O0selRfC9gtES2mS0u149qPEhBxOuNU8i';
 const NPSController = {};
 
 //makes a get request to NPS api, with the api key and creates an object with key value pairs of park_name: park_code
@@ -15,9 +15,9 @@ NPSController.getParkCodes = async (_req, res, next) => {
       if (
         // park.designation.includes('National Park & Preserve') ||
         // park.designation.includes('National Parks') ||
-        park.designation.includes("National Park") ||
-        park.name.includes("Samoa") ||
-        park.name.includes("Redwood")
+        park.designation.includes('National Park') ||
+        park.name.includes('Samoa') ||
+        park.name.includes('Redwood')
       ) {
         parkCodes[park.name] = park.parkCode;
       }

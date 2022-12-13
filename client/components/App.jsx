@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useLayoutEffect } from "react";
-import SidebarContainer from "../containers/SidebarContainer.jsx";
-import MainContainer from "../containers/MainContainer.jsx";
+import React, { useEffect, useState, useLayoutEffect } from 'react';
+import SidebarContainer from '../containers/SidebarContainer.jsx';
+import MainContainer from '../containers/MainContainer.jsx';
 
 const App = () => {
   // let codes = [];
@@ -12,15 +12,15 @@ const App = () => {
 
   //making fetch request to /user/
   useEffect(() => {
-    fetch("http://localhost:3000/user/", {
-      method: "GET",
-      headers: { "Content-Type": "Application/JSON" },
+    fetch('http://localhost:3000/user/', {
+      method: 'GET',
+      headers: { 'Content-Type': 'Application/JSON' },
     })
       .then((res) => res.json())
       .then((data) => {
         setCodes(data);
       })
-      .catch((err) => console.log("AddPark fetch POST to api: ERROR: ", err));
+      .catch((err) => console.log('AddPark fetch POST to api: ERROR: ', err));
   }, []);
 
   return (
