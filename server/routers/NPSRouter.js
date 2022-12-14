@@ -3,11 +3,13 @@ const NPSController = require('../controllers/NPSController');
 
 const NPSRouter = express.Router();
 
+// MIGHT NOT BE NEEDED, PARK CODES ARE STORED LOCALLY
 //grabs all the park codes and sends it back to client as an object {park_name: park_code, ....}
 NPSRouter.get('/parks', NPSController.getParkCodes, (_req, res) => {
   return res.status(200).send(res.locals.parkCodes);
 });
 
+// THIS ONE WORKS FINE
 //given a specific park code, this will make a fetch request to the nps parks api and get all the details on that specific park and send it back to the client.
 NPSRouter.get('/parks/:parkCode', NPSController.getPark, (_req, res) => {
   return res.status(200).send(res.locals.parkData);

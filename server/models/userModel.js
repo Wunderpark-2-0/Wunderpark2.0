@@ -7,9 +7,9 @@ const WORK_FACTOR = 10;
 //parks visited: {park_code: {details: , activities: , notes: }, date_visited: ...}
 const userSchema = mongoose.Schema(
   {
-    username: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    parksVisited: {},
+    parksVisited: {}
   },
   { minimize: false } //lets you initialize parksVisited as empty, because by default MongoDB doesnt allow for empty objects as values
 );
