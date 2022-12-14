@@ -3,25 +3,47 @@ const userController = require('../controllers/UserController');
 
 const userRouter = express.Router();
 
-userRouter.get(
-  '/:parkCode',
-  userController.getUser,
-  userController.getParkInfo,
-  (_req, res) => {
-    return res.status(200).json(res.locals.parkInfo);
+
+// POST to /login   - logging in  -- should go through the verifyUser middle ware
+userRouter.post('/login', userController.verifyUser, (req, res) => {
+  if(res.locals.needSignUp){
+    return res.sendStatus(401);
   }
-);
+  return res.status(200).json(res.locals.user);
+})
 
-userRouter.get('/', userController.getParks, (_req, res) => {
-  return res.status(200).json(res.locals.parks);
-});
 
-userRouter.post('/:parkCode', userController.addPark, (_req, res) => {
-  return res.status(200).json(res.locals.park);
-});
+// POST to /signup   - Create a User   - create user middleware
+userRouter.post('/signup', userController.createUser, (req,res) => {
+  return res.status(200).json(res.locals.user);
+})
 
-userRouter.post('/', userController.createUser, (_req, res) => {
-  return res.status(200).json(res.locals.newUser);
-});
+// PATCH to /  - adding to parks visited  update user middleware
+userRouter.patch('/', (req, res) => {
+  return res.sendStatus(200);
+})
+
+
+
+// userRouter.get(
+//   '/:parkCode',
+//   userController.getUser,
+//   userController.getParkInfo,
+//   (_req, res) => {
+//     return res.status(200).json(res.locals.parkInfo);
+//   }
+// );
+
+// userRouter.get('/', userController.getParks, (_req, res) => {
+//   return res.status(200).json(res.locals.parks);
+// });
+
+// userRouter.post('/:parkCode', userController.addPark, (_req, res) => {
+//   return res.status(200).json(res.locals.park);
+// });
+
+// userRouter.post('/', userController.createUser, (_req, res) => {
+//   return res.status(200).json(res.locals.newUser);
+// });
 
 module.exports = userRouter;

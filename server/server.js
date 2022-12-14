@@ -9,7 +9,7 @@ const app = express();
 
 //TO DO : Update MONGO URI with our data base uri
 const MONGO_URI =
-  'mongodb+srv://Wunder:wunderpus@wunder.ldeokyo.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb+srv://jasonandchase:jasonandchase@wunderdb.vf6hl9e.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(MONGO_URI);
 
 app.use(express.json());
