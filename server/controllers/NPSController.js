@@ -29,6 +29,7 @@ NPSController.getParkCodes = async (_req, res, next) => {
   }
 };
 
+// THIS ONE WORKS FINE
 //given a specific park code, this makes a get request to NPS to grab all the park data.
 NPSController.getPark = async (req, res, next) => {
   try {
@@ -43,7 +44,7 @@ NPSController.getPark = async (req, res, next) => {
   }
 };
 
-//makes an additional get request to the webcam api to include that link in the modal.
+//formats the modal data and makes an additional get request to the webcam api to include that link in the modal.
 NPSController.getModalInfo = async (req, res, next) => {
   try {
     const park = res.locals.parkData;

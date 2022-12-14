@@ -19,8 +19,8 @@ userRouter.post('/signup', userController.createUser, (req,res) => {
 })
 
 // PATCH to /  - adding to parks visited  update user middleware
-userRouter.patch('/', (req, res) => {
-  return res.sendStatus(200);
+userRouter.patch('/', userController.updateUserParksVisited, (req, res) => {
+  return res.status(200).json(res.locals.updatedUser);
 })
 
 

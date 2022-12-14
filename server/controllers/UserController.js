@@ -51,11 +51,40 @@ userController.verifyUser = async (req, res, next) => {
 
 //updateUser - req.body = {username: , notes: , dateVisited: , activitiesCompleted}
 userController.updateUserParksVisited = (req, res, next) => {
-  const {username, parkCode, notes, dateVisited, activitiesCompleted} = req.body;
-
-
-
-}
+  console.log("request body", req.body)
+  const {
+    username,
+    parkCode,
+    notes,
+    dateVisited,
+    activitiesDone,
+    parksVisited,
+  } = req.body;
+console.log('username:',username)
+  User.findOneAndUpdate(
+    { username },
+    {
+     parksVisited: {
+        ...parksVisited,
+        [parkCode]: { notes, dateVisited, activitiesDone },
+      },
+    },
+    {
+      new: true,
+    }
+  )
+    .then((updatedUser) => {
+      console.log("updatedUser", updatedUser);
+      res.locals.updatedUser = updatedUser;
+      return next();
+    })
+    .catch((err) => {
+      return next({
+        log: "Error in updateUserParksVisited",
+        message: { err },
+      });
+    });
+};
 
 
 
